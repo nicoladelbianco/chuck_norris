@@ -1,6 +1,8 @@
 import "package:http/http.dart" as http;
 import "dart:convert";
 
+import "models/chuck_norris.dart";
+
 Future<ChuckNorris> getChuck([String? category]) async {
   final String url;
   if (category != null) {
@@ -14,16 +16,4 @@ Future<ChuckNorris> getChuck([String? category]) async {
   final json = jsonDecode(data.body);
   return ChuckNorris(
       fact: json["value"], id: json["id"], createdAt: json["created_at"]);
-}
-
-class ChuckNorris {
-  String fact;
-  String id;
-  String createdAt;
-  ChuckNorris({required this.fact, required this.id, required this.createdAt});
-
-  @override
-  String toString() {
-    return "ID: $id\nCreato il: $createdAt\nFact: $fact ";
-  }
 }
