@@ -5,8 +5,6 @@ import 'package:chuck_norris/models/chuck_norris.dart';
 import 'package:csv/csv.dart' as csv;
 import 'package:chuck_norris/chuck_norris.dart' as chuck_norris;
 
-//final category = "dev";
-
 void main(List<String> arguments) async {
   final dynamic data;
   final file = File("categories.csv").openRead();
