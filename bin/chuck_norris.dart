@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:csv/csv.dart' as csv;
-import 'package:chuck_norris/chuck_norris.dart' as chuck_norris;
+import 'package:chuck_norris/chuck_norris_facts.dart' as chuck_norris;
 
 void main(List<String> arguments) async {
   final dynamic data;
