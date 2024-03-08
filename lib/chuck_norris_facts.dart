@@ -1,9 +1,8 @@
 import "package:http/http.dart" as http;
 import "dart:convert";
-
 import "models/chuck_norris.dart";
 
-Future<ChuckNorris> getChuckCategory([String? category]) async {
+Future<ChuckNorris> getChuckCategory(String category) async {
   final url = "https://api.chucknorris.io/jokes/random?category=$category";
 
   final uri = Uri.parse(url);
@@ -30,11 +29,5 @@ Future<List<ChuckNorris>> getChuckQuery(String? query) async {
         createdAt: e["created_at"],
         category: e["categories"].toString()));
   }
-  /*return ChuckNorris(
-      fact: json["value"],
-      id: json["id"],
-      createdAt: json["created_at"],
-      category: json["categories"][0]);
-  */
   return listChuck;
 }
