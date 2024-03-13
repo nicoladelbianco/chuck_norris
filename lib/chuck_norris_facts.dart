@@ -11,18 +11,16 @@ Future<dynamic> getJson(String url) async {
 
 Future<ChuckNorris> getChuckCategory(String category) async {
   final url = "https://api.chucknorris.io/jokes/random?category=$category";
+
   final jsonString = await getJson(url);
   return ChuckNorris.fromJson(jsonString);
 }
 
 Future<List<ChuckNorris>> getChuckQuery(String? query) async {
-  List<ChuckNorris> listChuck = [];
   final url = "https://api.chucknorris.io/jokes/search?query=$query";
 
   final jsonString = await getJson(url);
-  final listJson = json.decode(jsonString);
-  for (var e in listJson["result"]) {
-    listChuck.add(ChuckNorris.fromMap(e));
-  }
+  final List listJson = json.decode(jsonString)["result"];
+  final listChuck = listJson.map((e) => ChuckNorris.fromMap(e)).toList();
   return listChuck;
 }
