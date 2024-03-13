@@ -17,13 +17,8 @@ class ChuckNorris {
   }
 
   factory ChuckNorris.fromJson(String jsonString) {
-    final json = jsonDecode(jsonString);
-    final chuck = ChuckNorris(
-        fact: json["value"],
-        id: json["id"],
-        createdAt: json["created_at"],
-        category: json["categories"].toString());
-    return chuck;
+    final Map<String, dynamic> data = json.decode(jsonString);
+    return ChuckNorris.fromMap(data);
   }
 
   factory ChuckNorris.fromMap(Map<String, dynamic> map) {
